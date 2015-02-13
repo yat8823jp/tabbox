@@ -1,0 +1,66 @@
+@import "compass/reset";
+
+@mixin opc($ercent){
+    filter:alpha(opacity=$ercent);
+    -moz-opacity: $ercent/100;
+    opacity: $ercent/100;
+}
+
+$wid: 500px;
+
+html{
+	width: 100%;
+	font-size:62.5%; /*10px */
+}
+
+body {
+	font-family: "メイリオ", Meiryo,"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Arial,"ＭＳ Ｐゴシック","MS PGothic",Osaka,sans-serif;
+	font-size:14px;
+	font-size:1.4rem;
+}
+
+.tab{
+	width: $wid;
+	height: 36px;
+	border-bottom:1px solid #f78b93;
+	background: #e4e4e4; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e4e4e4 0%, #f3f3f3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4e4e4), color-stop(100%,#f3f3f3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e4e4e4 0%,#f3f3f3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e4e4e4 0%,#f3f3f3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e4e4e4 0%,#f3f3f3 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e4e4e4 0%,#f3f3f3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#f3f3f3',GradientType=0 ); /* IE6-9 */
+
+	li{float: left;}
+	li.tab-bt{
+		font-size:14px; font-size: 1.4rem;
+		a{
+			height:36px; padding: 12px 20px 0 15px; box-sizing: border-box; display:block;
+			&:link,&:visited{color: #666;}
+			&:hover{color: #fff; @include opc(100);}
+		}
+	}
+	
+	li.tab-bt{a:hover{background: #f78b93;}}
+		li.active{background: #f78b93;}
+	li.active{
+		a{ &:link,&:visited{color: #fff; @include opc(100);} }
+	}
+
+}//.tab
+
+
+.tabbox{
+	width: $wid;
+
+	.box{
+		padding: 20px;
+		box-sizing: border-box;
+		border-bottom: 1px dotted #f78b93;
+		display: none;
+	}//.box
+
+}//.tabbox
+
+.box.active{ display:block; }
